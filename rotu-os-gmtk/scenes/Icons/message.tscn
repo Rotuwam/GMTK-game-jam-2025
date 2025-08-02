@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dey1enyx2og7i"]
+
+[ext_resource type="PackedScene" uid="uid://cr3y1jssb7qpy" path="res://scenes/draggable.tscn" id="1_eguqn"]
+[ext_resource type="Texture2D" uid="uid://ui7gw10b31ta" path="res://Assets/message.png" id="2_qrica"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eguqn"]
+size = Vector2(165, 160)
+
+[node name="Message" instance=ExtResource("1_eguqn")]
+
+[node name="Object" parent="." index="0"]
+texture = ExtResource("2_qrica")
+
+[node name="Button" parent="." index="1"]
+offset_left = -90.0
+offset_top = -83.0
+offset_right = 77.0
+offset_bottom = 82.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-7.5, 0)
+shape = SubResource("RectangleShape2D_eguqn")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://5j4xvlpypy3g"]
+
+[ext_resource type="PackedScene" uid="uid://cr3y1jssb7qpy" path="res://scenes/draggable.tscn" id="1_l7547"]
+[ext_resource type="Texture2D" uid="uid://dpyvlpvxt6i76" path="res://Assets/file.png" id="2_s5fu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7547"]
+size = Vector2(168, 165)
+
+[node name="SchoolWork" instance=ExtResource("1_l7547")]
+
+[node name="Object" parent="." index="0"]
+texture = ExtResource("2_s5fu7")
+
+[node name="Button" parent="." index="1"]
+offset_left = -91.0
+offset_top = -76.0
+offset_right = 76.0
+offset_bottom = 89.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-7, 7.5)
+shape = SubResource("RectangleShape2D_l7547")

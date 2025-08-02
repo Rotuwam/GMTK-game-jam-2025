@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53n1uhftkax1"]
+
+[ext_resource type="Texture2D" uid="uid://cm0d844dlbh7o" path="res://Assets/MAINmENU.png" id="1_yqeox"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 480)
+texture = ExtResource("1_yqeox")
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 340.0
+offset_top = 478.0
+offset_right = 947.0
+offset_bottom = 725.0
+
+[node name="LinkButton" type="LinkButton" parent="Buttons"]
+offset_left = 23.0
+offset_top = 732.0
+offset_right = 152.0
+offset_bottom = 824.0
+uri = "https://www.youtube.com/@RotuwamCodes"
+
+[node name="LinkButton2" type="LinkButton" parent="Buttons"]
+offset_left = 39.0
+offset_top = 837.0
+offset_right = 137.0
+offset_bottom = 961.0
+uri = "https://linktr.ee/rotuwam "

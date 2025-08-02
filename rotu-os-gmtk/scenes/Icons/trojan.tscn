@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://gm717cf7apxy"]
+
+[ext_resource type="PackedScene" uid="uid://cr3y1jssb7qpy" path="res://scenes/draggable.tscn" id="1_5vetp"]
+[ext_resource type="Texture2D" uid="uid://dvwyieesjc2h1" path="res://Assets/trojan.png" id="2_f4xi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vetp"]
+size = Vector2(166, 163)
+
+[node name="Trojan" instance=ExtResource("1_5vetp")]
+
+[node name="Object" parent="." index="0"]
+texture = ExtResource("2_f4xi4")
+
+[node name="Button" parent="." index="1"]
+offset_left = -91.0
+offset_top = -70.0
+offset_right = 76.0
+offset_bottom = 95.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-7, 12.5)
+shape = SubResource("RectangleShape2D_5vetp")

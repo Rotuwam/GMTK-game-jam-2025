@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://sm2xvp684fhn"]
+
+[ext_resource type="PackedScene" uid="uid://cr3y1jssb7qpy" path="res://scenes/draggable.tscn" id="1_dti5x"]
+[ext_resource type="Texture2D" uid="uid://csxy113i2pcal" path="res://Assets/cmd.png" id="2_ogrm1"]
+
+[node name="CMDVirus" instance=ExtResource("1_dti5x")]
+
+[node name="Object" parent="." index="0"]
+texture = ExtResource("2_ogrm1")

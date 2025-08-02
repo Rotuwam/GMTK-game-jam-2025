@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj24p0p868apn"]
+
+[ext_resource type="PackedScene" uid="uid://cr3y1jssb7qpy" path="res://scenes/draggable.tscn" id="1_gwgvw"]
+[ext_resource type="Texture2D" uid="uid://b1g77ct6hn1lx" path="res://Assets/car.png" id="2_dtlf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwgvw"]
+size = Vector2(166, 165)
+
+[node name="Car" instance=ExtResource("1_gwgvw")]
+
+[node name="Object" parent="." index="0"]
+texture = ExtResource("2_dtlf6")
+
+[node name="Button" parent="." index="1"]
+offset_left = -91.0
+offset_top = -74.0
+offset_right = 76.0
+offset_bottom = 91.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-7, 8.5)
+shape = SubResource("RectangleShape2D_gwgvw")

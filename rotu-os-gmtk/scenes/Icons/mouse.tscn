@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://l0bt1nl4riiv"]
+
+[ext_resource type="PackedScene" uid="uid://cr3y1jssb7qpy" path="res://scenes/draggable.tscn" id="1_x7t7h"]
+[ext_resource type="Texture2D" uid="uid://dg7quxim4l5jb" path="res://Assets/mouse.png" id="2_h4x4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7t7h"]
+size = Vector2(167, 164)
+
+[node name="Mouse" instance=ExtResource("1_x7t7h")]
+
+[node name="Object" parent="." index="0"]
+texture = ExtResource("2_h4x4f")
+
+[node name="Button" parent="." index="1"]
+offset_left = -91.0
+offset_top = -81.0
+offset_right = 76.0
+offset_bottom = 84.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-6.5, 2)
+shape = SubResource("RectangleShape2D_x7t7h")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr3y1jssb7qpy"]
+
+[ext_resource type="Script" uid="uid://drv38m27vlbi6" path="res://scenes/object.gd" id="1_g8jaa"]
+
+[node name="Draggable" type="Node2D"]
+script = ExtResource("1_g8jaa")
+
+[node name="Object" type="Sprite2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx0cbq2x80pa3"]
+
+[ext_resource type="PackedScene" uid="uid://cr3y1jssb7qpy" path="res://scenes/draggable.tscn" id="1_54jlb"]
+[ext_resource type="Texture2D" uid="uid://bea2vxtrhq4xn" path="res://Assets/virus.png" id="2_qs0bi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54jlb"]
+size = Vector2(168, 167)
+
+[node name="VirusJoke" instance=ExtResource("1_54jlb")]
+
+[node name="Object" parent="." index="0"]
+texture = ExtResource("2_qs0bi")
+
+[node name="Button" parent="." index="1"]
+offset_left = -90.0
+offset_top = -86.0
+offset_right = 77.0
+offset_bottom = 79.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-7, -3.5)
+shape = SubResource("RectangleShape2D_54jlb")

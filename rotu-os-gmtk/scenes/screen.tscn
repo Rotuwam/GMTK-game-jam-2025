@@ -1,9 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://62kuq4jghou6"]
+[gd_scene load_steps=5 format=3 uid="uid://62kuq4jghou6"]
 
 [ext_resource type="Texture2D" uid="uid://cq0jl5tyuq2dr" path="res://Assets/BG.png" id="1_erqjc"]
+[ext_resource type="Script" uid="uid://c5mydql1bhos5" path="res://scenes/screen.gd" id="1_qc0hx"]
+[ext_resource type="PackedScene" uid="uid://bj24p0p868apn" path="res://scenes/Icons/car.tscn" id="2_mgv7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erqjc"]
+size = Vector2(174, 186.75)
 
 [node name="Screen" type="Node2D"]
+script = ExtResource("1_qc0hx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 480)
 texture = ExtResource("1_erqjc")
+
+[node name="TrashBin" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashBin"]
+position = Vector2(109, 104.625)
+shape = SubResource("RectangleShape2D_erqjc")
+
+[node name="Icons" type="Node2D" parent="."]
+
+[node name="Car" parent="Icons" instance=ExtResource("2_mgv7h")]
+position = Vector2(116, 298)
