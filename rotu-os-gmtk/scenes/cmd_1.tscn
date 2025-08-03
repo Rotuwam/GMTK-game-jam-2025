@@ -1,9 +1,82 @@
-[gd_scene load_steps=2 format=3 uid="uid://du8i0tnky3p42"]
+[gd_scene load_steps=7 format=3 uid="uid://du8i0tnky3p42"]
 
 [ext_resource type="Texture2D" uid="uid://cydr24255t1qa" path="res://Assets/CMD1.png" id="1_7p7dn"]
+[ext_resource type="Script" uid="uid://cwy4lvwdgxh3a" path="res://scenes/cmd_1.gd" id="1_smric"]
+
+[sub_resource type="Animation" id="Animation_7p7dn"]
+resource_name = "pop_in"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -0.00104167), Vector2(1, 1.00729)]
+}
+
+[sub_resource type="Animation" id="Animation_smric"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -0.00104167)]
+}
+
+[sub_resource type="Animation" id="Animation_04ggs"]
+resource_name = "pop_out"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1.00729), Vector2(1, -0.00104926)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04ggs"]
+_data = {
+&"RESET": SubResource("Animation_smric"),
+&"pop_in": SubResource("Animation_7p7dn"),
+&"pop_out": SubResource("Animation_04ggs")
+}
 
 [node name="CMD1" type="Node2D"]
+script = ExtResource("1_smric")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(640, 480)
+position = Vector2(640, 478)
+scale = Vector2(1, -0.00104167)
 texture = ExtResource("1_7p7dn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_04ggs")
+}
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1048.0
+offset_top = 194.0
+offset_right = 1118.0
+offset_bottom = 246.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

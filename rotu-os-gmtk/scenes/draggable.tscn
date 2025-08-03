@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drv38m27vlbi6" path="res://scenes/object.gd" id="1_g8jaa"]
 
-[node name="Draggable" type="Node2D"]
+[node name="Draggable" type="Node2D" groups=["draggable"]]
 script = ExtResource("1_g8jaa")
 
 [node name="Object" type="Sprite2D" parent="."]
@@ -12,9 +12,13 @@ self_modulate = Color(1, 1, 1, 0)
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["draggable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

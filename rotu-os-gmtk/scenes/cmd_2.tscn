@@ -1,9 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://cktvpqy7axvy2"]
+[gd_scene load_steps=5 format=3 uid="uid://cktvpqy7axvy2"]
 
 [ext_resource type="Texture2D" uid="uid://b53cjc6mmblq5" path="res://Assets/CMD2.png" id="1_76ins"]
+
+[sub_resource type="Animation" id="Animation_76ins"]
+resource_name = "pop_in"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -0.00104167), Vector2(1.002, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0hs3f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -0.00104167)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pxccj"]
+_data = {
+&"RESET": SubResource("Animation_0hs3f"),
+&"pop_in": SubResource("Animation_76ins")
+}
 
 [node name="CMD2" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 480)
+scale = Vector2(1, -0.00104167)
 texture = ExtResource("1_76ins")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pxccj")
+}
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1048.0
+offset_top = 194.0
+offset_right = 1118.0
+offset_bottom = 246.0

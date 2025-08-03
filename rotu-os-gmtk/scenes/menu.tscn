@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b53n1uhftkax1"]
+[gd_scene load_steps=4 format=3 uid="uid://b53n1uhftkax1"]
 
+[ext_resource type="Script" uid="uid://cnb6rksypm81y" path="res://scenes/menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://cm0d844dlbh7o" path="res://Assets/MAINmENU.png" id="1_yqeox"]
+[ext_resource type="FontFile" uid="uid://cdvxuu0e5gi8i" path="res://Assets/Roboto_Condensed-Regular.ttf" id="3_con2f"]
 
 [node name="Menu" type="Node2D"]
+script = ExtResource("1_vjb58")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 480)
@@ -30,3 +33,30 @@ offset_top = 837.0
 offset_right = 137.0
 offset_bottom = 961.0
 uri = "https://linktr.ee/rotuwam "
+
+[node name="Quit" type="Button" parent="Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1042.0
+offset_right = 1277.0
+offset_bottom = 125.0
+theme_override_colors/font_outline_color = Color(0.110038, 9.58343e-05, 0.174742, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("3_con2f")
+theme_override_font_sizes/font_size = 100
+text = "QUIT"
+
+[node name="Label" type="Label" parent="Buttons"]
+offset_left = 1080.0
+offset_top = 1.0
+offset_right = 1316.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.122816, 3.71389e-05, 0.151111, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("3_con2f")
+theme_override_font_sizes/font_size = 100
+text = "QUIT"
+
+[connection signal="pressed" from="Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

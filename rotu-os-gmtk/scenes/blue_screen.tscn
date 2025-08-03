@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://brvwtkcdmn8n0"]
+[gd_scene load_steps=3 format=3 uid="uid://brvwtkcdmn8n0"]
 
 [ext_resource type="Texture2D" uid="uid://vcia0xsrl3b6" path="res://Assets/BLUESCREEN.png" id="1_0g14n"]
+[ext_resource type="Script" uid="uid://ds4sxws7kegao" path="res://scenes/blue_screen.gd" id="1_07gbj"]
 
 [node name="BlueScreen" type="Node2D"]
+script = ExtResource("1_07gbj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 480)

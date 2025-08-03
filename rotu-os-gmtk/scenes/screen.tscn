@@ -1,8 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://62kuq4jghou6"]
+[gd_scene load_steps=16 format=3 uid="uid://62kuq4jghou6"]
 
 [ext_resource type="Texture2D" uid="uid://cq0jl5tyuq2dr" path="res://Assets/BG.png" id="1_erqjc"]
 [ext_resource type="Script" uid="uid://c5mydql1bhos5" path="res://scenes/screen.gd" id="1_qc0hx"]
 [ext_resource type="PackedScene" uid="uid://bj24p0p868apn" path="res://scenes/Icons/car.tscn" id="2_mgv7h"]
+[ext_resource type="PackedScene" uid="uid://dey1enyx2og7i" path="res://scenes/Icons/message.tscn" id="3_gapb5"]
+[ext_resource type="PackedScene" uid="uid://dwk5tpo3gxeum" path="res://scenes/Icons/notepad.tscn" id="4_esotp"]
+[ext_resource type="PackedScene" uid="uid://bs0ullkc5xfkx" path="res://scenes/Icons/maker.tscn" id="5_ufolh"]
+[ext_resource type="FontFile" uid="uid://cdvxuu0e5gi8i" path="res://Assets/Roboto_Condensed-Regular.ttf" id="5_vhdk8"]
+[ext_resource type="PackedScene" uid="uid://bmp5y5l0he3fv" path="res://scenes/Icons/pencil.tscn" id="6_mfkbl"]
+[ext_resource type="PackedScene" uid="uid://l0bt1nl4riiv" path="res://scenes/Icons/mouse.tscn" id="7_wydk0"]
+[ext_resource type="PackedScene" uid="uid://c26mngyqfu8md" path="res://scenes/Icons/video.tscn" id="8_mml8x"]
+[ext_resource type="PackedScene" uid="uid://gm717cf7apxy" path="res://scenes/Icons/trojan.tscn" id="9_sp806"]
+[ext_resource type="PackedScene" uid="uid://sm2xvp684fhn" path="res://scenes/Icons/cmd_virus.tscn" id="10_06c6w"]
+[ext_resource type="PackedScene" uid="uid://5j4xvlpypy3g" path="res://scenes/Icons/school_work.tscn" id="11_ed25v"]
+[ext_resource type="PackedScene" uid="uid://cx0cbq2x80pa3" path="res://scenes/Icons/virus_joke.tscn" id="12_2hpia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erqjc"]
 size = Vector2(174, 186.75)
@@ -22,5 +33,94 @@ shape = SubResource("RectangleShape2D_erqjc")
 
 [node name="Icons" type="Node2D" parent="."]
 
+[node name="CMDVirus" parent="Icons" instance=ExtResource("10_06c6w")]
+position = Vector2(342, 502)
+
 [node name="Car" parent="Icons" instance=ExtResource("2_mgv7h")]
-position = Vector2(116, 298)
+position = Vector2(340, 89)
+
+[node name="Message" parent="Icons" instance=ExtResource("3_gapb5")]
+position = Vector2(122, 306)
+
+[node name="Notepad" parent="Icons" instance=ExtResource("4_esotp")]
+position = Vector2(122, 507)
+
+[node name="Maker" parent="Icons" instance=ExtResource("5_ufolh")]
+position = Vector2(122, 713)
+
+[node name="Pencil" parent="Icons" instance=ExtResource("6_mfkbl")]
+position = Vector2(343, 308)
+
+[node name="Mouse" parent="Icons" instance=ExtResource("7_wydk0")]
+position = Vector2(340, 712)
+
+[node name="Video" parent="Icons" instance=ExtResource("8_mml8x")]
+position = Vector2(556, 98)
+
+[node name="Trojan" parent="Icons" instance=ExtResource("9_sp806")]
+position = Vector2(562, 293)
+
+[node name="SchoolWork" parent="Icons" instance=ExtResource("11_ed25v")]
+position = Vector2(560, 509)
+
+[node name="VirusJoke" parent="Icons" instance=ExtResource("12_2hpia")]
+position = Vector2(564, 715)
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 243.0
+offset_top = 851.0
+offset_right = 356.0
+offset_bottom = 945.0
+
+[node name="Button2" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -1.0
+offset_top = 843.0
+offset_right = 222.0
+offset_bottom = 964.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 949.0
+offset_top = 845.0
+offset_right = 1281.0
+offset_bottom = 968.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_vhdk8")
+theme_override_font_sizes/font_size = 30
+text = "CLICK THE START BUTTON
+TO RETURN TO THE MAIN 
+MENU :)"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1167.0
+offset_top = 3.0
+offset_right = 1278.0
+offset_bottom = 100.0
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.969
+offset_right = 1.0
+offset_bottom = 0.00699615
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("5_vhdk8")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+
+[node name="GameTimer" type="Timer" parent="Control"]
+autostart = true
+
+[connection signal="area_entered" from="TrashBin" to="." method="_on_trash_bin_area_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="timeout" from="Control/GameTimer" to="." method="_on_game_timer_timeout"]
